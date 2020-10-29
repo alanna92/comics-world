@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'styles/variables';
+
 html,
 body {
     margin: 0;
@@ -6,4 +8,5 @@ body {
     height: 100%;
     font-family: 'Roboto', sans-serif;
     font-size: 17px;
+    background-color: $dark-color;
 }

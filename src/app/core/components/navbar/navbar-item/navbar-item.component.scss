@@ -1,15 +1,16 @@
+@import 'variables';
+
 :host {
     margin-left: 5%;
 }
 
 .nav__item {
     text-decoration: none;
-    color: white;
-    opacity: 0.5;
+    color: $text-white-opacity;
 }
 
 .nav__item--active {
-    border-bottom: 1.5px solid white;
+    border-bottom: 1.5px solid $text-white;
     font-weight: bold;
-    opacity: 1;
+    color: $text-white;
 }
