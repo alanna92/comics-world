@@ -1,0 +1,19 @@
+{
+  "editor.formatOnSave": true,
+    "[javascript]": {
+        "editor.formatOnSave": false
+    },
+    "[typescript]": {
+        "editor.formatOnSave": false
+    },
+    "prettier.bracketSpacing": true,
+    "eslint.validate": ["javascript", "typescript"],
+    "html.format.wrapAttributes": "force-aligned",
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
+
+}
