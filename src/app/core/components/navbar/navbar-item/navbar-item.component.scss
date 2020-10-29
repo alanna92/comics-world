@@ -1,0 +1,15 @@
+:host {
+    margin-left: 5%;
+}
+
+.nav__item {
+    text-decoration: none;
+    color: white;
+    opacity: 0.5;
+}
+
+.nav__item--active {
+    border-bottom: 1.5px solid white;
+    font-weight: bold;
+    opacity: 1;
+}
