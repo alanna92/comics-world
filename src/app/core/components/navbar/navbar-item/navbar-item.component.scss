@@ -1,7 +1,8 @@
 @import 'variables';
 
 :host {
-    margin-left: 5%;
+    margin-left: 2rem;
+    margin-right: 1rem;
 }
 
 .nav__item {
@@ -10,7 +11,7 @@
 }
 
 .nav__item--active {
-    border-bottom: 1.5px solid $text-white;
+    border-bottom: 0.1rem solid $text-white;
     font-weight: bold;
     color: $text-white;
 }

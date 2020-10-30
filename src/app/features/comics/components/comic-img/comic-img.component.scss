@@ -1,0 +1,15 @@
+.comics__item {
+    max-width: 10rem;
+    height: 15em;
+    margin-top: 1rem;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+    transition: all ease 0.5s;
+}
+
+.comics__item:hover {
+    opacity: 0.3;
+    cursor: pointer;
+}

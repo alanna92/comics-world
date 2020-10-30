@@ -1,0 +1,11 @@
+.comics {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-right: -2%;
+
+    app-comic-img {
+        margin-right: 2%;
+    }
+}
