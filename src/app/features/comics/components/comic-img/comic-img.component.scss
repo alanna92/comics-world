@@ -1,3 +1,5 @@
+@import 'variables';
+
 .comics__item {
     max-width: 10rem;
     height: 15em;
@@ -5,11 +7,28 @@
     img {
         width: 100%;
         height: 100%;
+        object-fit: fill;
     }
     transition: all ease 0.5s;
+    position: relative;
 }
 
 .comics__item:hover {
     opacity: 0.3;
     cursor: pointer;
+}
+
+.comics__item--title {
+    position: absolute;
+    bottom: 0;
+    background-color: $light-gray;
+    font-size: 12px;
+    width: 100%;
+    height: 2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0.5rem 0.2rem 0 0.2rem;
+    text-align: center;
+    box-sizing: border-box;
 }

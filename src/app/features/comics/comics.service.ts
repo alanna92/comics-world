@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { Comic } from './comic';
 import { MarvelAPIResponse } from '../../shared/models/marvel-api-response';
@@ -10,11 +9,20 @@ import { MarvelAPIResponse } from '../../shared/models/marvel-api-response';
 export class ComicsService {
     private baseUrl = `${environment.apiUrl}/comics`;
 
+    private comics = new BehaviorSubject<Comic[]>([]);
+
+    readonly comics$ = this.comics.asObservable();
+
     constructor(private readonly http: HttpClient) {}
 
-    list(): Observable<Comic[]> {
-        return this.http
-            .get<MarvelAPIResponse>(this.baseUrl)
-            .pipe(map((response) => response.data.results as Comic[]));
+    load(offset = 0): void {
+        this.http
+            .get<MarvelAPIResponse>(`${this.baseUrl}?offset=${offset}`)
+            .subscribe(
+                (response) => {
+                    this.comics.next(response.data.results as Comic[]);
+                },
+                (error) => console.log(error)
+            );
     }
 }

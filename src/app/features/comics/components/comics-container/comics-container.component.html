@@ -1,4 +1,5 @@
-<div class="comics">
+<div class="comics"
+     *ngIf="comics && comics.length">
     <app-comic-img *ngFor="let comic of comics"
                    [comic]="comic">
     </app-comic-img>
