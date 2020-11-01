@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ComicsService } from '../comics.service';
-import { Comic } from '../comic';
+import { ComicsService } from '../../services/comics.service';
+import { Comic } from '../../models/comic';
 
 @Component({
     selector: 'app-comics',
-    templateUrl: 'comics-list-page.component.html',
-    styleUrls: ['comics-list-page.component.scss'],
+    templateUrl: 'comics-list-container.component.html',
+    styleUrls: ['comics-list-container.component.scss'],
     providers: [ComicsService],
 })
-export class ComicsListPageComponent implements OnInit {
+export class ComicsListContainerComponent implements OnInit {
     comics$: Observable<Comic[]>;
 
     page = 0;

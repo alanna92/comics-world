@@ -5,7 +5,7 @@
                placeholder="Search">
     </div>
 
-    <app-comics-container [comics]="comics$ | async"></app-comics-container>
+    <app-comics-list [comics]="comics$ | async"></app-comics-list>
 
     <div class="pagination">
         <button (click)="back()"

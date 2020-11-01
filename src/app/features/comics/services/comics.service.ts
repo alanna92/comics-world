@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
-import { environment } from '../../../environments/environment';
-import { Comic } from './comic';
-import { MarvelAPIResponse } from '../../shared/models/marvel-api-response';
+import { environment } from '../../../../environments/environment';
+import { Comic } from '../models/comic';
+import { MarvelAPIResponse } from '../../../shared/models/marvel-api-response';
 
 @Injectable()
 export class ComicsService {

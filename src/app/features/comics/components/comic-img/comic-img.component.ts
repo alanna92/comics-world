@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { Comic } from '../../comic';
+import { Comic } from '../../models/comic';
 
 @Component({
     selector: 'app-comic-img',
