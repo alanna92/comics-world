@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { finalize, map } from 'rxjs/operators';
+import { UrlParams } from '../../../shared/models/url-params';
 import { environment } from '../../../../environments/environment';
 import { Comic } from '../models/comic';
 import { MarvelAPIResponse } from '../../../shared/models/marvel-api-response';
@@ -24,12 +25,15 @@ export class ComicsService {
         return this.isUpdating$.asObservable();
     }
 
-    load(offset = 0): void {
+    load(page = 0, search = ''): void {
+        const urlParams = new UrlParams(page, this.LIMIT, {
+            titleStartsWith: search.trim(),
+        });
+        const url = urlParams.getUrlWithParams(this.baseUrl);
+
         this.isUpdating$.next(true);
         this.http
-            .get<MarvelAPIResponse>(
-                `${this.baseUrl}?offset=${offset * this.LIMIT}`
-            )
+            .get<MarvelAPIResponse>(url)
             .pipe(finalize(() => this.isUpdating$.next(false)))
             .subscribe(
                 (response) => {

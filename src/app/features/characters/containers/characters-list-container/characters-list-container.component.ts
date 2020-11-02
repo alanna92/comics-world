@@ -25,4 +25,8 @@ export class CharactersListContainerComponent implements OnInit {
     load(offset: number): void {
         this.charactersServive.load(offset);
     }
+
+    filter(searchText: string): void {
+        this.charactersServive.load(0, searchText);
+    }
 }

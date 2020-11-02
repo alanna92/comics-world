@@ -1,0 +1,25 @@
+@import 'variables';
+
+.search {
+    width: 100%;
+    input {
+        font-size: 14px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        background-color: $dark-gray;
+        color: $light-gray;
+        padding: 0.7rem;
+        border: 1px solid $dark-gray;
+        border-radius: 5px;
+    }
+
+    input:focus {
+        border: 1px solid $light-gray;
+        outline: none;
+    }
+}
+
+:host {
+    width: 100%;
+}

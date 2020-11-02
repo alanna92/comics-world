@@ -25,4 +25,8 @@ export class ComicsListContainerComponent implements OnInit {
     load(offset: number): void {
         this.comicsServive.load(offset);
     }
+
+    filter(searchText: string): void {
+        this.comicsServive.load(0, searchText);
+    }
 }

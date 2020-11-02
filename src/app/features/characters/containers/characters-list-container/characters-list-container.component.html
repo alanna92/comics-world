@@ -1,9 +1,5 @@
 <div class="container">
-    <div class="search">
-        <input type="text"
-               class="search__input"
-               placeholder="Search">
-    </div>
+    <app-search-input (textChange)="filter($event)"></app-search-input>
 
     <app-characters-list *ngIf="!(isUpdating$ | async); else loading"
                          [characters]="characters$ | async">
