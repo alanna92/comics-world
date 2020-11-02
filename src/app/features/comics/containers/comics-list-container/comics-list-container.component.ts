@@ -7,7 +7,6 @@ import { Comic } from '../../models/comic';
     selector: 'app-comics',
     templateUrl: 'comics-list-container.component.html',
     styleUrls: ['comics-list-container.component.scss'],
-    providers: [ComicsService],
 })
 export class ComicsListContainerComponent implements OnInit {
     comics$: Observable<Comic[]>;

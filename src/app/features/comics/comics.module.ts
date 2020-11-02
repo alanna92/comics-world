@@ -4,14 +4,14 @@ import { SharedModule } from '../../shared/shared.module';
 import { ComicsListContainerComponent } from './containers/comics-list-container/comics-list-container.component';
 import { ComicsRoutingModule } from './comics-routing.module';
 import { ComicsListComponent } from './components/comics-list/comics-list.component';
-import { ComicImgComponent } from './components/comic-img/comic-img.component';
+import { ComicsDetailsContainerComponent } from './containers/comics-details-container/comics-details-container.component';
 
 @NgModule({
     imports: [SharedModule, ComicsRoutingModule],
     declarations: [
         ComicsListContainerComponent,
+        ComicsDetailsContainerComponent,
         ComicsListComponent,
-        ComicImgComponent,
     ],
 })
 export class ComicsModule {}

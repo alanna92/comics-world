@@ -1,24 +1,19 @@
 @import 'variables';
 
-.comics__item {
+.item {
     max-width: 10rem;
     height: 15em;
     margin-top: 1rem;
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: fill;
-    }
     transition: all ease 0.5s;
     position: relative;
 }
 
-.comics__item:hover {
+.item:hover {
     opacity: 0.3;
     cursor: pointer;
 }
 
-.comics__item--title {
+.item--title {
     position: absolute;
     bottom: 0;
     background-color: $light-gray;

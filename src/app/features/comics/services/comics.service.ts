@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import { finalize, map } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
 import { Comic } from '../models/comic';
 import { MarvelAPIResponse } from '../../../shared/models/marvel-api-response';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ComicsService {
     private baseUrl = `${environment.apiUrl}/comics`;
 
@@ -33,5 +33,13 @@ export class ComicsService {
                 },
                 (error) => console.log(error)
             );
+    }
+
+    getComic(id: number): Observable<Comic> {
+        this.isUpdating$.next(true);
+        return this.http.get<MarvelAPIResponse>(`${this.baseUrl}/${id}`).pipe(
+            finalize(() => this.isUpdating$.next(false)),
+            map((response) => response.data.results[0] as Comic)
+        );
     }
 }
