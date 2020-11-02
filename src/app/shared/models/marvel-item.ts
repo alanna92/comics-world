@@ -5,4 +5,6 @@ export interface MarvelItem {
     title: string;
     description: string;
     thumbnail: Thumbnail;
+
+    getImgSrc(): string;
 }

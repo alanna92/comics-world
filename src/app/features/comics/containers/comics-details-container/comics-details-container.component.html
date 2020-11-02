@@ -3,19 +3,7 @@
         <app-loading></app-loading>
     </ng-template>
 
-    <div *ngIf="comic$ | async as comic; else loading"
-         class="details">
-        <div class="details__img">
-            <app-item-img [thumbnail]="comic?.thumbnail"></app-item-img>
-        </div>
-
-        <div class="details__info">
-            <app-info-text label="Title"
-                           [text]="comic?.title">
-            </app-info-text>
-            <app-info-text label="Description"
-                           [text]="comic?.description">
-            </app-info-text>
-        </div>
+    <div *ngIf="comic$ | async as comic; else loading">
+        <app-comic-details [comic]="comic"></app-comic-details>
     </div>
 </div>

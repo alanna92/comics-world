@@ -1,0 +1,31 @@
+.details {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.details__info {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    margin-left: 5rem;
+}
+
+.details__img {
+    height: 100%;
+    max-width: 40%;
+}
+
+@media (max-width: 480px) {
+    .details__img {
+        max-width: 100%;
+    }
+
+    .details {
+        flex-direction: column;
+    }
+
+    .details__info {
+        margin: 0;
+    }
+}

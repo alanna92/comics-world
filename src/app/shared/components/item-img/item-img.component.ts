@@ -1,20 +1,11 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { Thumbnail } from '../../models/thumbnail';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'app-item-img',
     templateUrl: 'item-img.component.html',
     styleUrls: ['item-img.component.scss'],
 })
-export class ItemImgComponent implements OnChanges {
+export class ItemImgComponent {
     @Input()
-    thumbnail: Thumbnail;
-
     imgSrc: string;
-
-    ngOnChanges(changes: SimpleChanges): void {
-        if (changes.thumbnail && this.thumbnail) {
-            this.imgSrc = `${this.thumbnail.path}.${this.thumbnail.extension}`;
-        }
-    }
 }

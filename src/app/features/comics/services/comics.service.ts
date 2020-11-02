@@ -29,7 +29,9 @@ export class ComicsService {
             .pipe(finalize(() => this.isUpdating$.next(false)))
             .subscribe(
                 (response) => {
-                    this.comics.next(response.data.results as Comic[]);
+                    this.comics.next(
+                        response.data.results.map((r) => new Comic(r))
+                    );
                 },
                 (error) => console.log(error)
             );
@@ -39,7 +41,7 @@ export class ComicsService {
         this.isUpdating$.next(true);
         return this.http.get<MarvelAPIResponse>(`${this.baseUrl}/${id}`).pipe(
             finalize(() => this.isUpdating$.next(false)),
-            map((response) => response.data.results[0] as Comic)
+            map((response) => new Comic(response.data.results[0]))
         );
     }
 }

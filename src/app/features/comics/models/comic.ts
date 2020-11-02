@@ -9,4 +9,15 @@ export class Comic implements MarvelItem {
     description: string;
 
     thumbnail: Thumbnail;
+
+    constructor(data: unknown) {
+        Object.assign(this, data);
+    }
+
+    getImgSrc(): string {
+        if (!this.thumbnail) {
+            return '';
+        }
+        return `${this.thumbnail.path}.${this.thumbnail.extension}`;
+    }
 }
