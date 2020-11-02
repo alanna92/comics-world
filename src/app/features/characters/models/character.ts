@@ -3,7 +3,7 @@ import { Thumbnail } from '../../../shared/models/thumbnail';
 export class Character {
     id: number;
 
-    title: string;
+    name: string;
 
     description: string;
 

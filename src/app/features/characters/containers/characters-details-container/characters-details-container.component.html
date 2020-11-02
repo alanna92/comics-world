@@ -1,0 +1,10 @@
+<div class="container">
+    <ng-template #loading>
+        <app-loading></app-loading>
+    </ng-template>
+
+    <div *ngIf="character$ | async as character; else loading">
+        <app-character-details [character]="character">
+        </app-character-details>
+    </div>
+</div>

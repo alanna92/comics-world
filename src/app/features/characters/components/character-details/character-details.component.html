@@ -1,0 +1,14 @@
+<div class="details">
+    <div class="details__img">
+        <app-item-img [imgSrc]="character?.getImgSrc()"></app-item-img>
+    </div>
+
+    <div class="details__info">
+        <app-info-text label="Name"
+                       [text]="character?.name">
+        </app-info-text>
+        <app-info-text label="Description"
+                       [text]="character?.description">
+        </app-info-text>
+    </div>
+</div>
