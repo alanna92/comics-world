@@ -3,13 +3,14 @@
 .container {
     margin: 1rem auto;
     width: 80%;
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .search {
+    width: 100%;
     input {
         font-size: 14px;
         width: 100%;
@@ -25,32 +26,5 @@
     input:focus {
         border: 1px solid $light-gray;
         outline: none;
-    }
-}
-
-.pagination {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    margin-top: 2rem;
-
-    span {
-        margin-bottom: 0.3rem;
-    }
-
-    button {
-        background: none;
-        border: none;
-        cursor: pointer;
-        outline: none;
-        color: white;
-        margin: 0 3rem;
-    }
-
-    button:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
     }
 }

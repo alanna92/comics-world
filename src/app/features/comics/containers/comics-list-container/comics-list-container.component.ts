@@ -12,27 +12,18 @@ import { Comic } from '../../models/comic';
 export class ComicsListContainerComponent implements OnInit {
     comics$: Observable<Comic[]>;
 
-    page = 0;
+    isUpdating$: Observable<boolean>;
 
     constructor(private readonly comicsServive: ComicsService) {}
 
     ngOnInit(): void {
         this.comics$ = this.comicsServive.comics$;
+        this.isUpdating$ = this.comicsServive.getIsUpdating();
 
-        this.load(this.page);
+        this.load(0);
     }
 
     load(offset: number): void {
         this.comicsServive.load(offset);
-    }
-
-    back(): void {
-        this.page -= 1;
-        this.load(this.page);
-    }
-
-    forward(): void {
-        this.page += 1;
-        this.load(this.page);
     }
 }
