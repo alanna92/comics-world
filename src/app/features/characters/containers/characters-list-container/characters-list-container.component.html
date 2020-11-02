@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="search">
+        <input type="text"
+               class="search__input"
+               placeholder="Search">
+    </div>
+
+    <app-characters-list *ngIf="!(isUpdating$ | async); else loading"
+                         [characters]="characters$ | async">
+    </app-characters-list>
+
+    <ng-template #loading>
+        <app-loading></app-loading>
+    </ng-template>
+
+    <app-pagination (paginationChange)="load($event)"></app-pagination>
+</div>

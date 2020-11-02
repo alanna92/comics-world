@@ -1,6 +1,8 @@
 <div class="comics"
      *ngIf="comics && comics.length">
     <app-list-item *ngFor="let comic of comics"
-                   [marvelItem]="comic">
+                   [imgSrc]="comic.getImgSrc()"
+                   [title]="comic.title"
+                   [id]="comic.id">
     </app-list-item>
 </div>

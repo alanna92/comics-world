@@ -1,0 +1,15 @@
+.characters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-right: -2%;
+
+    app-list-item {
+        margin-right: 2%;
+    }
+}
+
+:host {
+    width: 100%;
+}

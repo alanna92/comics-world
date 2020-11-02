@@ -1,0 +1,8 @@
+<div class="characters"
+     *ngIf="characters && characters.length">
+    <app-list-item *ngFor="let character of characters"
+                   [imgSrc]="character.getImgSrc()"
+                   [title]="character.name"
+                   [id]="character.id">
+    </app-list-item>
+</div>

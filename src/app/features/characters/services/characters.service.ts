@@ -3,18 +3,18 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { finalize, map } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
-import { Comic } from '../models/comic';
+import { Character } from '../models/character';
 import { MarvelAPIResponse } from '../../../shared/models/marvel-api-response';
 
 @Injectable({ providedIn: 'root' })
-export class ComicsService {
+export class CharactersService {
     private LIMIT = 20;
 
-    private baseUrl = `${environment.apiUrl}/comics`;
+    private baseUrl = `${environment.apiUrl}/characters`;
 
-    private comics = new BehaviorSubject<Comic[]>([]);
+    private characters = new BehaviorSubject<Character[]>([]);
 
-    readonly comics$ = this.comics.asObservable();
+    readonly characters$ = this.characters.asObservable();
 
     private isUpdating$ = new BehaviorSubject<boolean>(false);
 
@@ -33,19 +33,19 @@ export class ComicsService {
             .pipe(finalize(() => this.isUpdating$.next(false)))
             .subscribe(
                 (response) => {
-                    this.comics.next(
-                        response.data.results.map((r) => new Comic(r))
+                    this.characters.next(
+                        response.data.results.map((r) => new Character(r))
                     );
                 },
                 (error) => console.log(error)
             );
     }
 
-    getComic(id: number): Observable<Comic> {
+    getCharacter(id: number): Observable<Character> {
         this.isUpdating$.next(true);
         return this.http.get<MarvelAPIResponse>(`${this.baseUrl}/${id}`).pipe(
             finalize(() => this.isUpdating$.next(false)),
-            map((response) => new Comic(response.data.results[0]))
+            map((response) => new Character(response.data.results[0]))
         );
     }
 }

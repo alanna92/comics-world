@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 
-import { CommonModule } from '@angular/common';
-import { CharactersListPageComponent } from './characters-list-page/characters-list-page.component';
+import { SharedModule } from '../../shared/shared.module';
 import { CharactersRoutingModule } from './characters-routing.module';
+import { CharactersListContainerComponent } from './containers/characters-list-container/characters-list-container.component';
+import { CharactersListComponent } from './components/characters-list/characters-list.component';
 
 @NgModule({
-    imports: [CommonModule, CharactersRoutingModule],
-    declarations: [CharactersListPageComponent],
+    imports: [SharedModule, CharactersRoutingModule],
+    declarations: [CharactersListContainerComponent, CharactersListComponent],
 })
 export class CharactersModule {}

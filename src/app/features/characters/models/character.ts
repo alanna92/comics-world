@@ -1,6 +1,6 @@
 import { Thumbnail } from '../../../shared/models/thumbnail';
 
-export class Comic {
+export class Character {
     id: number;
 
     title: string;

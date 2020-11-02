@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { MarvelItem } from '../../models/marvel-item';
 
 @Component({
     selector: 'app-list-item',
@@ -9,7 +8,13 @@ import { MarvelItem } from '../../models/marvel-item';
 })
 export class ListItemComponent {
     @Input()
-    marvelItem: MarvelItem;
+    imgSrc: string;
+
+    @Input()
+    title: string;
+
+    @Input()
+    id: number;
 
     constructor(
         private readonly router: Router,
@@ -17,7 +22,7 @@ export class ListItemComponent {
     ) {}
 
     handleItemClick(): void {
-        this.router.navigate([this.marvelItem.id], {
+        this.router.navigate([this.id], {
             relativeTo: this.activatedRoute,
         });
     }
