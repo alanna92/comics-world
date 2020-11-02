@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Character } from '../../models/character';
 import { CharactersService } from '../../services/characters.service';
+import { FavoritesCharactersService } from '../../services/favorites-characters.service';
 
 @Component({
     selector: 'app-characters',
@@ -13,7 +14,12 @@ export class CharactersListContainerComponent implements OnInit {
 
     isUpdating$: Observable<boolean>;
 
-    constructor(private readonly charactersServive: CharactersService) {}
+    filterByFavorites = false;
+
+    constructor(
+        private readonly charactersServive: CharactersService,
+        private readonly favoritesService: FavoritesCharactersService
+    ) {}
 
     ngOnInit(): void {
         this.characters$ = this.charactersServive.characters$;
@@ -28,5 +34,13 @@ export class CharactersListContainerComponent implements OnInit {
 
     filter(searchText: string): void {
         this.charactersServive.load(0, searchText);
+    }
+
+    changeFavoriteFilter(): void {
+        this.filterByFavorites = !this.filterByFavorites;
+
+        this.characters$ = this.filterByFavorites
+            ? this.favoritesService.getFavorites()
+            : this.charactersServive.characters$;
     }
 }

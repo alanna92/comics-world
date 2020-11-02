@@ -9,6 +9,7 @@ import { ListItemComponent } from './components/list-item/list-item.component';
 import { ItemImgComponent } from './components/item-img/item-img.component';
 import { SearchInputComponent } from './components/search-input/search-input.component';
 import { BackBtnComponent } from './components/back-btn/back-btn.component';
+import { FavoriteBtnComponent } from './components/favorite-btn/favorite-btn.component';
 
 @NgModule({
     imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
@@ -23,6 +24,7 @@ import { BackBtnComponent } from './components/back-btn/back-btn.component';
         ItemImgComponent,
         SearchInputComponent,
         BackBtnComponent,
+        FavoriteBtnComponent,
     ],
     declarations: [
         PaginationComponent,
@@ -32,6 +34,7 @@ import { BackBtnComponent } from './components/back-btn/back-btn.component';
         ItemImgComponent,
         SearchInputComponent,
         BackBtnComponent,
+        FavoriteBtnComponent,
     ],
     providers: [],
 })

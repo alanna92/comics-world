@@ -1,0 +1,21 @@
+@import 'variables';
+.star-btn {
+    height: 2rem;
+    width: 6rem;
+    background-color: black;
+    color: white;
+    border-radius: 0.3rem;
+    padding: 1rem 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: white 1.5px solid;
+    outline: none;
+    cursor: pointer;
+}
+
+.favorite {
+    color: black;
+    background-color: $yellow;
+    border: $yellow 1.5px solid;
+}

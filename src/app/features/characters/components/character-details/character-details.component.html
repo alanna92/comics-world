@@ -4,6 +4,9 @@
     </div>
 
     <div class="details__info">
+        <app-character-details-favorite-btn [character]="character">
+        </app-character-details-favorite-btn>
+
         <app-info-text label="Name"
                        [text]="character?.name">
         </app-info-text>

@@ -1,0 +1,8 @@
+<app-favorite-btn [isFavorite]="!!fromFavoriteList"
+                  (toggleFavorite)="toggle()">
+    <i class="material-icons">star</i>
+    Star
+</app-favorite-btn>
+<p *ngIf="!!fromFavoriteList">
+    Added to favorite list at: {{ fromFavoriteList?.favoriteAt | date: 'dd/MM/yyyy - HH:mm' }}
+</p>

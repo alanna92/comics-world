@@ -9,6 +9,10 @@ export class Character {
 
     thumbnail: Thumbnail;
 
+    isFavorite: boolean;
+
+    favoriteAt: Date;
+
     constructor(data: unknown) {
         Object.assign(this, data);
     }
