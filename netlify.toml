@@ -1,6 +1,4 @@
 [[redirects]]
-    from = "/api"
+    from = "/api/*"
     to = "http://gateway.marvel.com/v1/public"
     status = 200
-    force = true
-    headers = {X-From = "Netlify"}
