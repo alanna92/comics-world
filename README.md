@@ -15,6 +15,8 @@ For now, this app has the following features:
 - Save/Unsave a character as favorite (it will be stored in localStorage)
 - See characters saved as favorite
 
+Click [here to see the demo app](https://nervous-elion-362ba8.netlify.app).
+
 ## Code structure
 
 
