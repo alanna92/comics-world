@@ -1,0 +1,5 @@
+<div class="container">
+    <app-characters-list (itemClick)="handleItemClick($event)"
+                         [characters]="favorite$ | async">
+    </app-characters-list>
+</div>

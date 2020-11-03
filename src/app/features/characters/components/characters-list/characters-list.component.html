@@ -3,6 +3,6 @@
     <app-list-item *ngFor="let character of characters"
                    [imgSrc]="character.getImgSrc()"
                    [title]="character.name"
-                   [id]="character.id">
+                   (itemClick)="handleItemClick(character.id)">
     </app-list-item>
 </div>

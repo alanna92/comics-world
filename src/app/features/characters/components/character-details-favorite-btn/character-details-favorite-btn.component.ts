@@ -26,10 +26,10 @@ export class CharacterDetailsFavoriteBtnComponent implements OnChanges {
     toggle(): void {
         if (this.fromFavoriteList) {
             this.favoritesService.remove(this.character);
+            this.fromFavoriteList = null;
         } else {
             this.favoritesService.add(this.character);
+            this.fromFavoriteList = this.character;
         }
-
-        this.fromFavoriteList = null;
     }
 }

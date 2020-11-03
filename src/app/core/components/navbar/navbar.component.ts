@@ -18,5 +18,9 @@ export class NavbarComponent {
             label: 'Characters',
             link: ['characters'],
         },
+        {
+            label: 'Favorites',
+            link: ['characters/favorites'],
+        },
     ];
 }

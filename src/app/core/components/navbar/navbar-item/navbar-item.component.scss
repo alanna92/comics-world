@@ -15,3 +15,10 @@
     font-weight: bold;
     color: $text-white;
 }
+
+@media (max-width: 400px) {
+    :host {
+        margin-left: 1rem;
+        margin-right: 0.5rem;
+    }
+}

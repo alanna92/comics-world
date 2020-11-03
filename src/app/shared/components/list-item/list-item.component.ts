@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -13,8 +13,8 @@ export class ListItemComponent {
     @Input()
     title: string;
 
-    @Input()
-    id: number;
+    @Output()
+    itemClick = new EventEmitter<number>();
 
     constructor(
         private readonly router: Router,
@@ -22,8 +22,6 @@ export class ListItemComponent {
     ) {}
 
     handleItemClick(): void {
-        this.router.navigate([this.id], {
-            relativeTo: this.activatedRoute,
-        });
+        this.itemClick.emit();
     }
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 import { Character } from '../../models/character';
 import { CharactersService } from '../../services/characters.service';
-import { FavoritesCharactersService } from '../../services/favorites-characters.service';
 
 @Component({
     selector: 'app-characters',
@@ -14,11 +14,9 @@ export class CharactersListContainerComponent implements OnInit {
 
     isUpdating$: Observable<boolean>;
 
-    filterByFavorites = false;
-
     constructor(
         private readonly charactersServive: CharactersService,
-        private readonly favoritesService: FavoritesCharactersService
+        private readonly router: Router
     ) {}
 
     ngOnInit(): void {
@@ -36,11 +34,7 @@ export class CharactersListContainerComponent implements OnInit {
         this.charactersServive.load(0, searchText);
     }
 
-    changeFavoriteFilter(): void {
-        this.filterByFavorites = !this.filterByFavorites;
-
-        this.characters$ = this.filterByFavorites
-            ? this.favoritesService.getFavorites()
-            : this.charactersServive.characters$;
+    handleItemClick(id: number): void {
+        this.router.navigate(['characters', id]);
     }
 }

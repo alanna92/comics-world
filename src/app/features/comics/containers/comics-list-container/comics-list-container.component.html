@@ -2,7 +2,8 @@
     <app-search-input (textChange)="filter($event)"></app-search-input>
 
     <app-comics-list *ngIf="!(isUpdating$ | async); else loading"
-                     [comics]="comics$ | async">
+                     [comics]="comics$ | async"
+                     (itemClick)="handleItemClick($event)">
     </app-comics-list>
 
     <ng-template #loading>

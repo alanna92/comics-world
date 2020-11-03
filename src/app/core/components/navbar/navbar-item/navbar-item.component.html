@@ -1,5 +1,6 @@
 <a class="nav__item"
    [routerLink]="item?.link"
+   [routerLinkActiveOptions]="{exact: true}"
    routerLinkActive="nav__item--active">
     {{item?.label}}
 </a>

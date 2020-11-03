@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 import { ComicsService } from '../../services/comics.service';
 import { Comic } from '../../models/comic';
 
@@ -13,7 +14,10 @@ export class ComicsListContainerComponent implements OnInit {
 
     isUpdating$: Observable<boolean>;
 
-    constructor(private readonly comicsServive: ComicsService) {}
+    constructor(
+        private readonly router: Router,
+        private readonly comicsServive: ComicsService
+    ) {}
 
     ngOnInit(): void {
         this.comics$ = this.comicsServive.comics$;
@@ -28,5 +32,9 @@ export class ComicsListContainerComponent implements OnInit {
 
     filter(searchText: string): void {
         this.comicsServive.load(0, searchText);
+    }
+
+    handleItemClick(id: number): void {
+        this.router.navigate(['comics', id]);
     }
 }

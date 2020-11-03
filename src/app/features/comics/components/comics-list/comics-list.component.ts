@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Comic } from '../../models/comic';
 
 @Component({
@@ -9,4 +9,11 @@ import { Comic } from '../../models/comic';
 export class ComicsListComponent {
     @Input()
     comics: Comic[];
+
+    @Output()
+    itemClick = new EventEmitter<number>();
+
+    handleItemClick(id: number): void {
+        this.itemClick.emit(id);
+    }
 }
