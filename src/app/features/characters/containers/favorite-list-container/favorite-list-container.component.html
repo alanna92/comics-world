@@ -1,5 +1,14 @@
 <div class="container">
-    <app-characters-list (itemClick)="handleItemClick($event)"
+
+    <app-characters-list *ngIf="(favorite$ | async)?.length; else noData"
+                         (itemClick)="handleItemClick($event)"
                          [characters]="favorite$ | async">
     </app-characters-list>
+
+    <ng-template #noData>
+        <div class="container__no-data">
+            <p>You don't have any character as favorite yet :(</p>
+            <p>Find your favorites and save here!</p>
+        </div>
+    </ng-template>
 </div>

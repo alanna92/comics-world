@@ -18,7 +18,7 @@ export class FavoriteListContainerComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        this.favorite$ = this.favoritesService.favorites$;
+        this.favorite$ = this.favoritesService.getFavorites();
     }
 
     handleItemClick(id: number): void {
