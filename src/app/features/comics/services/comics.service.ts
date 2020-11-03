@@ -15,7 +15,15 @@ export class ComicsService {
 
     private comics = new BehaviorSubject<Comic[]>([]);
 
+    private totalComics = new BehaviorSubject<number>(0);
+
+    private totalPages = new BehaviorSubject<number>(0);
+
     readonly comics$ = this.comics.asObservable();
+
+    readonly totalComics$ = this.totalComics.asObservable();
+
+    readonly totalPages$ = this.totalPages.asObservable();
 
     private isUpdating$ = new BehaviorSubject<boolean>(false);
 
@@ -39,6 +47,10 @@ export class ComicsService {
                 (response) => {
                     this.comics.next(
                         response.data.results.map((r) => new Comic(r))
+                    );
+                    this.totalComics.next(response.data.total);
+                    this.totalPages.next(
+                        response.data.total / response.data.limit
                     );
                 },
                 (error) => console.log(error)

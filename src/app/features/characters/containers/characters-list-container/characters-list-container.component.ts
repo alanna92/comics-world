@@ -14,6 +14,12 @@ export class CharactersListContainerComponent implements OnInit {
 
     isUpdating$: Observable<boolean>;
 
+    page = 0;
+
+    totalPages$: Observable<number>;
+
+    searchText = '';
+
     constructor(
         private readonly charactersServive: CharactersService,
         private readonly router: Router
@@ -22,19 +28,27 @@ export class CharactersListContainerComponent implements OnInit {
     ngOnInit(): void {
         this.characters$ = this.charactersServive.characters$;
         this.isUpdating$ = this.charactersServive.getIsUpdating();
+        this.totalPages$ = this.charactersServive.totalPages$;
 
-        this.load(0);
+        this.load();
     }
 
-    load(offset: number): void {
-        this.charactersServive.load(offset);
+    load(): void {
+        this.charactersServive.load(this.page, this.searchText);
     }
 
     filter(searchText: string): void {
-        this.charactersServive.load(0, searchText);
+        this.page = 0;
+        this.searchText = searchText;
+        this.load();
     }
 
     handleItemClick(id: number): void {
         this.router.navigate(['characters', id]);
+    }
+
+    handlePaginationChange(diff: number): void {
+        this.page += diff;
+        this.load();
     }
 }

@@ -1,10 +1,11 @@
 <div class="pagination">
-    <button (click)="back()"
+    <button (click)="paginationChange.emit(-1)"
             [disabled]="page === 0">
         <i class="material-icons">keyboard_arrow_left</i>
     </button>
     <span>Page {{page + 1}}</span>
-    <button (click)="forward()">
+    <button (click)="paginationChange.emit(+1)"
+            [disabled]="page + 1 >= totalPages">
         <i class="material-icons">keyboard_arrow_right</i>
     </button>
 </div>

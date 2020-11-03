@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
     selector: 'app-pagination',
@@ -6,18 +6,12 @@ import { Component, Output, EventEmitter } from '@angular/core';
     styleUrls: ['pagination.component.scss'],
 })
 export class PaginationComponent {
+    @Input()
     page = 0;
+
+    @Input()
+    totalPages = 0;
 
     @Output()
     paginationChange = new EventEmitter<number>();
-
-    back(): void {
-        this.page -= 1;
-        this.paginationChange.emit(this.page);
-    }
-
-    forward(): void {
-        this.page += 1;
-        this.paginationChange.emit(this.page);
-    }
 }
