@@ -19,6 +19,8 @@ export class UrlParams {
             .map((key) => `${key}=${this.params[key]}`)
             .join('&');
 
-        return `${baseUrl}?offset=${offset}&${queryString}`;
+        return queryString
+            ? `${baseUrl}?offset=${offset}&${queryString}`
+            : `${baseUrl}?offset=${offset}`;
     }
 }
