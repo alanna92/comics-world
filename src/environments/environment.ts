@@ -6,7 +6,7 @@ import { marvelApi } from './marvel-api.envionment';
 
 export const environment = {
     production: false,
-    apiUrl: 'http://gateway.marvel.com/v1/public',
+    apiUrl: '/api',
     ...marvelApi,
 };
 

@@ -4,7 +4,7 @@ const targetPath = './src/environments/environment.prod.ts';
 
 const envConfigFile = `export const environment = {
    production: true,
-   apiUrl: 'http://gateway.marvel.com/v1/public',
+   apiUrl: '/api',
    publicKey: '${process.env.PUBLIC_KEY}',
 };
 `;
