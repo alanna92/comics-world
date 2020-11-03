@@ -1,5 +1,5 @@
 [[redirects]]
     from = "/api/*"
-    to = "http://gateway.marvel.com/v1/public"
+    to = "http://gateway.marvel.com/v1/public/:splat"
     status = 200
     headers = { Access-Control-Allow-Origin = "*" }
