@@ -15,7 +15,15 @@ export class CharactersService {
 
     private characters = new BehaviorSubject<Character[]>([]);
 
+    private totalCharacters = new BehaviorSubject<number>(0);
+
+    private totalPages = new BehaviorSubject<number>(0);
+
     readonly characters$ = this.characters.asObservable();
+
+    readonly totalCharacters$ = this.totalCharacters.asObservable();
+
+    readonly totalPages$ = this.totalPages.asObservable();
 
     private isUpdating$ = new BehaviorSubject<boolean>(false);
 
@@ -40,6 +48,10 @@ export class CharactersService {
                 (response) => {
                     this.characters.next(
                         response.data.results.map((r) => new Character(r))
+                    );
+                    this.totalCharacters.next(response.data.total);
+                    this.totalPages.next(
+                        response.data.total / response.data.limit
                     );
                 },
                 (error) => console.log(error)
