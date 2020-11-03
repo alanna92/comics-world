@@ -17,9 +17,47 @@ For now, this app has the following features:
 
 Click [here to see the demo app](https://nervous-elion-362ba8.netlify.app).
 
-## Code structure
+## Folder structure
 
+The folder structure used was:
 
+```bash
+├── src
+│   ├── app
+│   │   ├── core
+│   │   |   ├── components
+│   │   |   ├── interceptors
+│   │   |   ├── core.module.ts
+│   │   ├── features
+│   │   |   ├── characters
+│   │   |   |   ├── components
+│   │   |   |   ├── containers
+│   │   |   |   ├── models
+│   │   |   |   ├── services
+│   │   |   |   ├── characters.routing.module.ts
+│   │   |   |   ├── characters.module.ts
+│   │   |   ├── comics
+│   │   |   |   ├── ...
+│   │   ├── shared
+│   │   |   ├── components
+│   │   |   ├── models
+│   │   |   ├── shared.module.ts
+│   ├── assets
+│   ├── environments
+│   ├── styles
+│   ├── ...
+├── ...
+```
+
+Inside `core` module we have everything that is imported only one time inside `AppModule`.
+
+In `features` folder, we divide our structure in main features. As we can see in this example, we have `characters` and `comics` features. Everything related to this features can be find in the respective folder.
+
+Inside `shared` folder, we have every shared components, models, service, etc.
+
+`assets` and `environments` are well known folders in Angular apps. We didn't change anything about it.
+
+We use `styles` folder to put every shared styles, as variables, for example.
 
 ## Running Locally
 
