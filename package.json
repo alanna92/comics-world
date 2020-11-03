@@ -5,6 +5,8 @@
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build",
+        "config": "ts-node -O '{\"module\": \"commonjs\"}' ./scripts/create-env.ts",
+        "build-prod": "npm run config && ng build --prod",
         "test": "ng test",
         "lint": "tsc --noEmit && eslint './src/app/**/*.{js,ts,tsx}' --quiet --fix",
         "e2e": "ng e2e"
